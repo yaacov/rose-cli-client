@@ -79,14 +79,15 @@ cd rose-cli-client
 ## Install the required packages:
 
 ``` bash
-    pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 ## Usage
 
 To start the game client, use the following command:
 
 ``` bash
-python main.py --url ws://game-server-url --drivers http://driver1-url http://driver2-url --fps 5
+python main.py --url ws://game-server-url \
+   --drivers http://driver1-url http://driver2-url --fps 5
 ```
 
 ### Command-line Arguments
