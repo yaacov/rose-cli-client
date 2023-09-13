@@ -172,9 +172,16 @@ def main(stdscr):
     stdscr.addstr("Connecting...\n")
     stdscr.refresh()
 
-    asyncio.get_event_loop().run_until_complete(
-        websocket_client(args.url, stdscr, args.drivers, args.fps)
-    )
+    try:
+        asyncio.get_event_loop().run_until_complete(
+            websocket_client(args.url, stdscr, args.drivers, args.fps)
+        )
+    except Exception as e:
+        stdscr.clear()
+        stdscr.addstr(f"Error: {e}\n")
+        stdscr.addstr(f"\nPress any key to exit.\n")
+        stdscr.refresh()
+        stdscr.getch()  # Wait for user input before exiting
 
 
 if __name__ == "__main__":
