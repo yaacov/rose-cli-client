@@ -36,14 +36,14 @@ podman run --network host --rm -it quay.io/rose/rose-cli-client \
 First, deploy the ROSE server and some drivers to the cluster:
 
 ``` bash
+# Deploy ROSE game server
+oc apply -f https://raw.githubusercontent.com/yaacov/rose-cli-client/main/ci/rose-engine.yaml
+
 # Deploy student A driver deployment
 oc apply -f https://raw.githubusercontent.com/yaacov/rose-go-driver/main/rose-go-driver.yaml
 
 # Deploy student B driver deployment
 oc apply -f https://raw.githubusercontent.com/yaacov/rose-ml-driver/main/rose-ml-driver.yaml
-
-# Deploy ROSE game server
-oc apply -f https://raw.githubusercontent.com/yaacov/rose-cli-client/main/ci/rose-engine.yaml
 ```
 
 Then, start the command-line client:
