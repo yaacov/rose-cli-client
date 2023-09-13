@@ -179,7 +179,7 @@ def main(stdscr):
     except Exception as e:
         stdscr.clear()
         stdscr.addstr(f"Error: {e}\n")
-        stdscr.addstr(f"\nPress any key to exit.\n")
+        stdscr.addstr("\nPress any key to exit.\n")
         stdscr.refresh()
         stdscr.getch()  # Wait for user input before exiting
 
