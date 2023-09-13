@@ -10,11 +10,11 @@ ITEM_COLORS = {
     "penguin": curses.COLOR_GREEN,
     "bike": curses.COLOR_BLUE,
     "water": curses.COLOR_CYAN,
-    "barrier": curses.COLOR_MAGENTA,
+    "barrier": curses.COLOR_RED,
     "car-0": curses.COLOR_WHITE,
-    "car-1": curses.COLOR_RED,
+    "car-1": curses.COLOR_WHITE,
     "car-2": curses.COLOR_WHITE,
-    "car-3": curses.COLOR_RED,
+    "car-3": curses.COLOR_WHITE,
 }
 COLOR_INDEX = {key: idx for idx, key in enumerate(ITEM_COLORS, 1)}
 
@@ -39,15 +39,19 @@ def update_screen(stdscr, data):
     # Display dashboard
     payload = data.get("payload", {})
     timeleft = payload.get("timeleft")
-    stdscr.addstr(f"Time Left: {timeleft}\n")
+    stdscr.addstr(f" Time Left: {timeleft}\n")
+    stdscr.addstr("\n")
 
     players = payload.get("players", [])
-    for player in players:
-        player_name = player.get("name")
-        player_car = player.get("car")
-        player_score = player.get("score")
-        stdscr.addstr(f"car-{player_car}: {player_name}, Score: {player_score}\n")
+    player1 = players[0]
+    player1_str = f"{player1.get('name')} (car-{player1.get('car')}), Score: {player1.get('score')}"
 
+    player2_str = ""
+    if len(players) > 1:
+        player2 = players[1]
+        player2_str = f"{player2.get('name')} (car-{player2.get('car')}), Score: {player2.get('score')}"
+    
+    stdscr.addstr(" " + player1_str.ljust(42) + player2_str)
     stdscr.addstr("\n")
 
     # Display track as 8x3 matrix
