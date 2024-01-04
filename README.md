@@ -1,6 +1,6 @@
 # ROSE CLI Client
 
-The command-line client for the ROSE game, demo the posibility of writing stand alone user interfaces, none web based UI, and 3rd party web based UIs.
+The command-line client for the ROSE game, demo the posibility of writing stand alone user interfaces, graphical, command line, and 3rd party web based UIs.
 
 ## Description
 
