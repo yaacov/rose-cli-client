@@ -7,6 +7,8 @@ The command-line client for the ROSE game.
 The rose-cli-client is a command-line interface for the ROSE game. It initializes the game client, parses command-line arguments, sets up the display, and starts the WebSocket client to connect to the game server.
 Installation
 
+![](https://github.com/yaacov/rose-cli-client/blob/b58a766518a893b6f221f20fc07747686ae4209d/demo.gif)
+
 ## Running Containerized:
 
 First, start the ROSE server and some drivers running on localhost:
