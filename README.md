@@ -14,11 +14,11 @@ Installation
 First, start the ROSE server and some drivers running on localhost:
 
 ``` bash
-# Start student A driver container
-podman run --rm --network host -e PORT=8001 -it quay.io/rose/rose-game-ai-reference:latest
-
-# Start student B driver container
+# Start student driver container
 podman run --rm --network host -it quay.io/yaacov/rose-go-driver:latest --port 8082
+
+# Start a reference driver
+podman run --rm --network host -e PORT=8001 -it quay.io/rose/rose-game-ai-reference:latest
 
 # Start server container
 podman run --rm --network host -it quay.io/rose/rose-game-engine:latest
