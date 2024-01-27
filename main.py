@@ -50,7 +50,7 @@ def update_screen(stdscr, data):
     if len(players) > 1:
         player2 = players[1]
         player2_str = f"{player2.get('name')} (car-{player2.get('car')}), Score: {player2.get('score')}"
-    
+
     stdscr.addstr(" " + player1_str.ljust(42) + player2_str)
     stdscr.addstr("\n")
 
