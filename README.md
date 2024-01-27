@@ -32,39 +32,6 @@ podman run --network host --rm -it quay.io/rose/rose-cli-client \
     --drivers http://127.0.0.1:8081 http://127.0.0.1:8082
 ```
 
-## Running on a cluster:
-
-First, deploy the ROSE server and some drivers to the cluster:
-
-``` bash
-# Deploy ROSE game server
-oc apply -f https://raw.githubusercontent.com/yaacov/rose-cli-client/main/ci/rose-engine.yaml
-
-# Deploy student A driver deployment
-oc apply -f https://raw.githubusercontent.com/yaacov/rose-go-driver/main/rose-go-driver.yaml
-
-# Deploy student B driver deployment
-oc apply -f https://raw.githubusercontent.com/yaacov/rose-ml-driver/main/rose-ml-driver.yaml
-```
-
-Then, start the command-line client:
-
-``` bash
-# Expose the server service to localhost
-oc port-forward service/rose-server-service 8880:8880
-
-# Check that the services and pods are running
-oc get svc
-oc get pods
-
-# Run the CLI client
-podman run --network host --rm -it quay.io/rose/rose-cli-client \
-  --url http://127.0.0.1:8880 \
-  --drivers \
-    http://rose-ml-driver-service.yzamir.svc.cluster.local:8081 \
-    http://rose-go-driver-service.yzamir.svc.cluster.local:8081
-```
-
 ## Clone the repository:
 
 ``` bash

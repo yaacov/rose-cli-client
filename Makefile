@@ -1,6 +1,6 @@
 .PHONY: lint lint-fix build-image
 
-IMAGE_NAME ?= quay.io/rose/rose-cli-client
+IMAGE_NAME ?= quay.io/yaacov/rose-cli-client
 
 # By default, run both linting and tests
 all: lint
