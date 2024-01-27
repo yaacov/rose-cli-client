@@ -27,7 +27,7 @@ podman run --rm --network host -it quay.io/rose/rose-game-engine:latest
 Then, start the command-line client:
 
 ``` bash
-podman run --network host --rm -it quay.io/rose/rose-cli-client \
+podman run --network host --rm -it quay.io/yaacov/rose-cli-client \
     --url http://127.0.0.1:8880 \
     --drivers http://127.0.0.1:8081 http://127.0.0.1:8082
 ```
