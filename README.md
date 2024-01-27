@@ -15,14 +15,13 @@ First, start the ROSE server and some drivers running on localhost:
 
 ``` bash
 # Start student A driver container
-podman run --rm --network host -it quay.io/rose/rose-ml-driver:latest --port 8081
+podman run --rm --network host -e PORT=8001 -it quay.io/rose/rose-game-ai-reference:latest
 
 # Start student B driver container
-podman run --rm --network host -it quay.io/rose/rose-go-driver:latest --port 8082
+podman run --rm --network host -it quay.io/yaacov/rose-go-driver:latest --port 8082
 
 # Start server container
-podman run --rm --network host -it quay.io/rose/rose-server:latest
-
+podman run --rm --network host -it quay.io/rose/rose-game-engine:latest
 ```
 
 Then, start the command-line client:
